@@ -18,16 +18,6 @@ public class User {
     private String name;
     private String email;
 
-    @Temporal(TemporalType.DATE)
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private LocalDate createdAt;
-
-    @Temporal(TemporalType.DATE)
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;

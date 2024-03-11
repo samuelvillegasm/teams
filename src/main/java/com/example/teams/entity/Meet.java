@@ -21,15 +21,6 @@ public class Meet {
     @Column(name = "max_time")
     private Integer maxTime;
 
-
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private LocalDate createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
-
     @ManyToMany(mappedBy = "meetTeams")
     Set<Team> teams;
 

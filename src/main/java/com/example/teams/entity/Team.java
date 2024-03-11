@@ -20,14 +20,6 @@ public class Team {
     private Integer memberNumber;
     private String tag;
 
-    @CreatedDate
-    @Column(name = "created_at", updatable = false)
-    private LocalDate createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
-
     @ManyToMany
     @JoinTable(
             name = "team_meet_history",

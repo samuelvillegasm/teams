@@ -33,13 +33,12 @@ public class UserService implements IUserService {
         User user = objectMapper.convertValue(createUserDto, User.class);
         user.setRole(role.get());
         User newUser = this.userRepository.save(user);
-        return new UserDto(newUser.getId(), newUser.getName(), newUser.getEmail(), newUser.getCreatedAt(), newUser.getUpdatedAt(), newUser.getRole());
+        return objectMapper.convertValue(newUser, UserDto.class);
     }
 
     @Override
     public List<UserDto> getAll() {
-        return this.userRepository.findAll().stream().map((u) ->
-                new UserDto(u.getId(), u.getName(), u.getEmail(), u.getCreatedAt(), u.getUpdatedAt(), u.getRole())
+        return this.userRepository.findAll().stream().map((u) -> objectMapper.convertValue(u, UserDto.class)
         ).toList();
     }
 }

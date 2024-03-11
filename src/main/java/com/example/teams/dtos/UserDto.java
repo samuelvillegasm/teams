@@ -8,8 +8,6 @@ public record UserDto (
         Long id,
         String name,
         String email,
-        LocalDate createdAt,
-        LocalDate updatedAt,
         Role role
 ){
 }

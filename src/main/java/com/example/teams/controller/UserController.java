@@ -26,7 +26,7 @@ public class UserController {
         return new ResponseEntity<>(
                 this.iUserService.create(createUserDto),
                 HttpStatus.CREATED
-        );
+            );
     }
 
     @GetMapping
